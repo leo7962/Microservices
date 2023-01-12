@@ -8,11 +8,11 @@ namespace Services.api.Library.Controllers;
 [ApiController]
 public class LibraryServiceController : ControllerBase
 {
-    private readonly IMongoRepository<AuhtorEntity> _authorGenericRepository;
+    private readonly IMongoRepository<AuthorEntity> _authorGenericRepository;
     private readonly IAuthorRepository _authorRepository;
 
     public LibraryServiceController(IAuthorRepository authorRepository,
-        IMongoRepository<AuhtorEntity> authorGenericRepository)
+        IMongoRepository<AuthorEntity> authorGenericRepository)
     {
         _authorRepository = authorRepository;
         _authorGenericRepository = authorGenericRepository;
@@ -26,7 +26,7 @@ public class LibraryServiceController : ControllerBase
     }
 
     [HttpGet("authorGeneric")]
-    public async Task<ActionResult<IEnumerable<AuhtorEntity>>> GetAuthorsGeneric()
+    public async Task<ActionResult<IEnumerable<AuthorEntity>>> GetAuthorsGeneric()
     {
         var authors = await _authorGenericRepository.GetAll();
         return Ok(authors);

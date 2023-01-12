@@ -3,7 +3,7 @@
 namespace Services.api.Library.Core.Entities;
 
 [BsonCollection("Author")]
-public class AuhtorEntity : Document
+public class AuthorEntity : Document
 {
     [BsonElement("name")] public string? Name { get; set; }
     [BsonElement("lastname")] public string? LastName { get; set; }
